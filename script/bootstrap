@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -efu
+
+function main {
+  git clone git@github.com:anderly/dnsimple-cli.git vendor/dnsimple-cli || true
+  pushd vendor/dnsimple-cli
+  npm install
+  popd
+  ln -nfs ../vendor/dnsimple-cli/bin/dnsimple bin/
+}
+
+main "$@"
